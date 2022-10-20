@@ -40,7 +40,7 @@ static int compareEmployeeSalary(const void *targetPtr, PtrToConstEmployee table
 	return *(double *)targetPtr != tableValuePtr->salary; // const void *targetPtr ==> typecast as double pointer then dereference
 }
 
-static int compareEmployeePhone(const void *targetPtr, PtrToConstEmployee tableValuePtr)
+static int compareEmployeePhoneNumber(const void *targetPtr, PtrToConstEmployee tableValuePtr)
 {
 	return strcmp((char *)targetPtr, tableValuePtr->phone); // const void *targetPtr ==> typecast as double pointer then dereference
 }
@@ -58,7 +58,7 @@ PtrToEmployee searchEmployeeByName(PtrToConstEmployee ptr, int size, char *name)
 
 PtrToEmployee searchEmployeeByPhoneNumber(PtrToConstEmployee ptr, int size, char *phone)
 {
-	return searchEmployeeTable(ptr, size, phone, compareEmployeePhone);
+	return searchEmployeeTable(ptr, size, phone, compareEmployeePhoneNumber);
 }
 
 PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int size, double salary)
