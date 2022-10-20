@@ -36,5 +36,17 @@ PtrToEmployee searchEmployeeByPhoneNumber(PtrToConstEmployee ptr, int tableSize,
 		if (strcmp(ptr->phone, targetNumber) == 0)
 			return (PtrToEmployee)ptr;
 	}
+
+	return NULL;
 }
 
+PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int tableSize, double targetSalary) {
+	const PtrToConstEmployee endPtr = ptr + tableSize;
+
+	for (; ptr < endPtr; ptr++)
+	{
+		if (ptr->salary == targetSalary) // check if it equals the Employee salary
+			return (PtrToEmployee)ptr;	 // return location of the salary.
+	}
+	return NULL; // this will only happen if no Employee salary matches in loop above
+}
